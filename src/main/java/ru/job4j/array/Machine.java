@@ -9,25 +9,10 @@ public class Machine {
         int[] rsl = new int[100];
         int size = 0;
         int deduct = money - price;
-        while (deduct > 0) {
-            if (deduct >= 10) {
-                rsl[size] = coins[0];
-                deduct -= 10;
-                size++;
-            }
-            if (deduct < 10 && deduct >= 5) {
-                rsl[size] = coins[1];
-                deduct -= 5;
-                size++;
-            }
-            if (deduct < 5 && deduct >= 2) {
-                rsl[size] = coins[2];
-                deduct -= 2;
-                size++;
-            }
-            if (deduct == 1) {
-                rsl[size] = coins[3];
-                deduct -= 1;
+        for (int coin : coins) {
+            while (deduct >= coin) {
+                deduct -= coin;
+                rsl[size] = coin;
                 size++;
             }
         }
