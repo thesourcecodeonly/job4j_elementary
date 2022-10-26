@@ -9,35 +9,21 @@ public class JavaNameValidator {
         }
         for (int i = 1; i < name.length(); i++) {
             int code = name.codePointAt(i);
-            if (isSpecialSymbol(code) || isUpperLatinLetter(code) || isLowerLatinLetter(code)
-                || Character.isDigit(name.charAt(i))) {
-                    valid = true;
-            } else {
-                valid = false;
-                break;
-            }
+            return isSpecialSymbol(code) || isUpperLatinLetter(code) || isLowerLatinLetter(code)
+                || Character.isDigit(name.charAt(i));
         }
         return valid;
     }
 
     public static boolean isSpecialSymbol(int code) {
-        if (code == 36 || code == 95) {
-            return true;
-        }
-        return false;
+         return code == 36 || code == 95 ? true : false;
     }
 
     public static boolean isUpperLatinLetter(int code) {
-        if (code >= 65 && code <= 90) {
-            return true;
-        }
-        return false;
+        return code >= 65 && code <= 90 ? true : false;
     }
 
     public static boolean isLowerLatinLetter(int code) {
-        if (code >= 97 && code <= 122) {
-            return true;
-        }
-        return false;
+        return code >= 97 && code <= 122 ? true : false;
     }
 }
